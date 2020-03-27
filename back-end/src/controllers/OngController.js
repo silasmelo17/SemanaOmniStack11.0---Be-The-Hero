@@ -19,7 +19,7 @@ async function create ( req, res ) {
         uf
     })
 
-    return res.json( id )
+    return res.json({ id })
 }
 
 export default {

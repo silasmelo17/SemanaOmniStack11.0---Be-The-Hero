@@ -1,4 +1,4 @@
-import connection from '../database/connection'
+const connection = require ( '../database/connection' )
 
 async function index ( req, res ) {
     const ong_id = req.headers.authorization
@@ -10,6 +10,6 @@ async function index ( req, res ) {
     return res.json( incidents )
 }
 
-export default {
+module.exports = {
     index
 }

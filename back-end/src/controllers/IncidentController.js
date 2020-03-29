@@ -1,4 +1,4 @@
-import connection from '../database/connection'
+const connection = require( '../database/connection' )
 
 async function create ( req, res ) { 
     const { title, description, value } = req.body
@@ -15,11 +15,9 @@ async function create ( req, res ) {
 }
 
 async function index ( req, res ) {
-    const { 
-        page = 1, 
-        amount = 5 
-    } = req.query
-
+    const { page = 1 } = req.query
+    const amount = 5
+    
     const [totalCount] = await connection( 'incidents' ).count()
     const incidents = await connection( 'incidents' )
         .join( 'ongs', 'ongs.id', '=', 'incidents.ong_id' ) 
@@ -57,7 +55,7 @@ async function remove ( req, res ) {
     return res.status(201).send()
 }
 
-export default {
+module.exports = {
     index,
     create,
     remove

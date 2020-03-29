@@ -1,4 +1,4 @@
-import connection from '../database/connection'
+const connection = require('../database/connection')
 
 async function create ( req, res ) {
     const { id } = req.body
@@ -14,6 +14,6 @@ async function create ( req, res ) {
     return res.json( ong )
 }
 
-export default {
+module.exports = {
     create
 }
